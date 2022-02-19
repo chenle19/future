@@ -1,5 +1,9 @@
 import { defineConfig } from 'vite'
+// defineConfig 工具函数，这样不用 jsdoc 注解也可以获取类型提示：
 import vue from '@vitejs/plugin-vue'
+// Vue 3 单文件组件支持：@vitejs/plugin-vue
+// Vue 3 JSX 支持：@vitejs/plugin-vue-jsx
+// Vue 2 支持：underfin/vite-plugin-vue2
 import path from 'path'
 
 // https://vitejs.dev/config/
@@ -7,30 +11,11 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
-    },
-    css: {
-      postcss: {
-        plugins: [
-          require('autoprefixer'),
-          require('postcss-px-to-viewport')({
-            unitToConvert: 'px',
-            viewportWidth: 375,
-            unitPrecision: 3,
-            propList: ['*'],
-            viewportUnit: 'vw',
-            fontViewportUnit: 'vw',
-            selectorBlackList: ['ignore-'],
-            minPixelValue: 1,
-            mediaQuery: false,
-            replace: true,
-            exclude: [],
-            landscape: true,
-            landscapeUnit: 'vw',
-            landscapeWidth: 750,
-          }),
-        ],
-      },
+      '~': path.resolve(__dirname, './'),
+      '@': path.resolve(__dirname, 'src')
     },
   },
+  server: {
+    host: '0.0.0.0'
+  }
 })
