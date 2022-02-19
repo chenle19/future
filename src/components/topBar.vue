@@ -2,13 +2,13 @@
 <template>
   <div class="topBar">
     <div class="left">
-      
+      's'
     </div>
     <div class="center">
       F I T N E S S
     </div>
     <div class="right">
-
+      右边
     </div>
   </div>
 </template>
